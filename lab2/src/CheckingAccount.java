@@ -1,7 +1,7 @@
 /**
  * Created by fred on 1/28/2017.
  */
-public class CheckingAccount extends Account {
+class CheckingAccount extends Account {
     private double overdraftLimit;
     CheckingAccount(int a, double overdraftLimit){
         super(a);
@@ -17,7 +17,7 @@ public class CheckingAccount extends Account {
     public void withdraw(double sum) {
         if (sum > 0) {
             if (bal-sum > overdraftLimit) {
-                bal -= sum;
+                bal = bal - sum;
                 System.out.println("Withdraw Successful ..");
             } else {
                 System.err.println("Overdraft Limit execeeded.");

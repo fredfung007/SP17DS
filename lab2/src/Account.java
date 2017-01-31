@@ -1,4 +1,4 @@
-class  Account {
+class Account {
 
     double bal;
     int accountNum;
@@ -24,7 +24,7 @@ class  Account {
 
     public void withdraw(double sum) {
         if (sum > 0) {
-            bal -= sum;
+            bal = bal - sum;
             System.out.println("Withdrawl Successful ..");
         } else
             System.err.println("cannot withdraw negative amount.");
@@ -34,7 +34,7 @@ class  Account {
         return bal;
     }
 
-    public double getAccountNumber() {
+    public int getAccountNumber() {
         return accountNum;
     }
 
