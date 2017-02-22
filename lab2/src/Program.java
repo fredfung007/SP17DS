@@ -3,7 +3,6 @@
  */
 public class Program {
     public static void main(String[] args) {
-        throw new UnsupportedOperationException();
         Bank bank = new Bank();
         int accountNo = bank.openAccount().getAccountNumber();
         Account account = bank.getAccount(accountNo);
