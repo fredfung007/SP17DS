@@ -17,7 +17,7 @@ public class Program {
         }
         // IF target can not be found.
         if (RecursiveBinarySearch.binarySearch(x, 21) != -1){
-            System.err.println();
+            System.err.println("Binary Search Incorrect");
         }
     }
 }
