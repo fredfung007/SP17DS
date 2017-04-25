@@ -6,7 +6,7 @@
 
 class TreeNode {
     public int iData;              // data item (key)
-    public double dData;           // data item
+    public int value;           // data item
     public TreeNode left;         // this node's left child
     public TreeNode right;        // this node's right child
 
@@ -26,9 +26,6 @@ class TreeNode {
         if (root == null)
             return true;
 
-        if (height(root) == -1)
-            return false;
-
-        return true;
+        return height(root) != -1;
     }
 }
