@@ -11,21 +11,23 @@ class TreeNode {
     public TreeNode right;        // this node's right child
 
     public static int height(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return -1;
+        }
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
 
-        int leftDepth = height(root.left);
-        int rightDepth = height(root.right);
-
-        int bigger = Math.max(leftDepth, rightDepth);
-
-        return bigger + 1;
+        return Math.max(leftHeight, rightHeight) + 1;
     }
 
     public boolean isBalanced(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return true;
-
-        return height(root) != -1;
+        }
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
+        return (Math.abs(leftHeight - rightHeight) <= 1)
+                && isBalanced(root.left)
+                && isBalanced(root.right);
     }
 }
