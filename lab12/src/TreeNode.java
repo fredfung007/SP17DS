@@ -12,7 +12,7 @@ class TreeNode {
 
     public static int height(TreeNode root) {
         if (root == null)
-            return 0;
+            return -1;
 
         int leftDepth = height(root.left);
         int rightDepth = height(root.right);
