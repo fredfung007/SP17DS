@@ -1,32 +1,30 @@
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by fred on 5/2/2017.
  */
 public class FindModeInBST {
-    private void helper(TreeNode root, int[] var, List<Integer> result) {
-        if (root == null) return;
-        helper(root.left, var, result);
-        var[1] = root.value == var[2] ? var[1] + 1 : 1;
-        if (var[1] >= var[0]) {
-            if (var[1] > var[0]) result.clear();
-            var[0] = var[1];
-            if (result.size() == 0 || result.get(result.size() - 1) != root.value) {
-                result.add(root.value);
-            }
-        }
-        var[2] = root.value;
-        helper(root.right, var, result);
-    }
+    private int highestCount, numWithHighestCount, i;
+    private Map<Integer, Integer> valToNumberAppearance  = new HashMap<Integer, Integer>();
 
     public int[] findMode(TreeNode root) {
-        List<Integer> temp = new LinkedList<>();
-        int[] var = new int[3]; // var[0] = max, var[1] = curr_max, var[2] = prev
-        helper(root, var, temp);
+        populateMap(root);
+        int[] res = new int[numWithHighestCount];
+        for (Map.Entry<Integer, Integer> entry : valToNumberAppearance.entrySet())
+            if (entry.getValue() == highestCount) res[i++] = entry.getKey();
+        return res;
+    }
 
-        int[] result = new int[temp.size()];
-        for (int i = 0; i < result.length; i++) result[i] = temp.get(i);
-        return result;
+    public void populateMap(TreeNode cur) {
+        Integer curOcurrences = valToNumberAppearance.getOrDefault(cur.value, 0);
+        valToNumberAppearance.put(cur.value, ++curOcurrences);
+        if (curOcurrences > highestCount) {
+            highestCount = curOcurrences;
+            numWithHighestCount = 1;
+        }
+        else if (curOcurrences == highestCount) numWithHighestCount++;
+        if (cur.left != null) populateMap(cur.left);
+        if (cur.right != null) populateMap(cur.right);
     }
 }
