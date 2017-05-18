@@ -10,6 +10,6 @@ Wednesday 3:30pm-4:45pm, Warren Weaver Hall 109.
 This is the recitation page for Data Structures Recitation.
 All codes and assignments for labs are available here. Solutions will be pushed to this repository once the deadline for submission passed.
  
-##SOFTWARE
+## SOFTWARE
 [Eclipse](https://www.eclipse.org/downloads/) provides IDEs and platforms for nearly every language and architecture. 
 The [JDK™](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)  is a development environment for building applications, applets, and components using the Java programming language.
